@@ -26,12 +26,10 @@ class UserProfile:
         self.__phone_number = phone_number
     def display_public_info(self):
         print(f"Username: {self.__username} , Phone: XXX-XXX-{self.__phone_number[-4:]}")
-        # print(f"Phone: XXX-XXX-{self.__phone_number[-4:]}")
     def update_phone_number(self,old_phone_number , new_phone_number):
         if old_phone_number == self.__phone_number:
             self.__phone_number = new_phone_number
             print("Contact info updated successfully.")
-            # print(f"Username: {self.__username}, Phone: {new_phone_number}")
         
 user_name = UserProfile("Cyber_user" ,"012-345-6789")
 user_name.display_public_info()
@@ -65,32 +63,30 @@ class KeyLogger(Trojan):
     def describe(self):
         return "This is a keylogger. Capturing keystrokes"
 
-obj_virus = Virus()
-obj_trojan = Trojan()
-obj_keylogger = KeyLogger()
-print(f"Virus Description: {obj_virus.describe()}")
-print(f"Virus Action: {obj_virus.replicate()}")
-print(f"Trojan Description: {obj_trojan.describe()}")
-print(f"Trojan Action: {obj_trojan.hide_in_files()}")
-print(f"Keylogger Description: {obj_keylogger.describe()}")
-print(f"Leylogger Action: {obj_keylogger.hide_in_files()}\n")
+virus = Virus()
+trojan = Trojan()
+keylogger = KeyLogger()
+print(f"Virus Description: {virus.describe()}")
+print(f"Virus Action: {virus.replicate()}")
+print(f"Trojan Description: {trojan.describe()}")
+print(f"Trojan Action: {trojan.hide_in_files()}")
+print(f"Keylogger Description: {keylogger.describe()}")
+print(f"Keylogger Action: {keylogger.hide_in_files()}\n")
 
 # excercise 5 
 print("excercise 5\n")
 class Logger:
-    def log(self, massage=0, error_code=0, details=0):
-        if massage !=0:
+    def log(self, massage=None, error_code=None, details=None):
+        if massage is not None:
             print(f"Log: {massage}")
-        elif error_code and details !=0:
+        elif error_code is not None and details is not None:
             print(f"Error code: {error_code}, Detail: {details}")
-        elif error_code == 200:
-            print(f"Error code: {error_code}, Detail: OK")
         else:
             print("Unknown log format")
-loger=Logger()
-loger.log("System started")
-loger.log(error_code=400, details={"url:" "not found"})
-loger.log()
+logger=Logger()
+logger.log("System started")
+logger.log(error_code=404, details={"url:" "not found"})
+logger.log()
 
 # excercise 6
 print("\nExcercise 6")
